@@ -9,7 +9,9 @@ class HashTableTest {
     @ParameterizedTest
     @CsvSource({"5,5", "10,10", "30,30"})
     void put(String key, String value) {
-        Assertions.assertEquals(key,value);
+        HashTable hashTable = new HashTable();
+        hashTable.put(key, value);
+        Assertions.assertNotNull(hashTable.get(key));
     }
 
     @ParameterizedTest

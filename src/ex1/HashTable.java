@@ -206,7 +206,6 @@ public class HashTable {
                 current = newKey.size() -1;
             }
         }
-
         return  foundKeys;
     }
 
