@@ -42,7 +42,6 @@ public class HashTable {
             temp.next = hashEntry;
             hashEntry.prev = temp;
         }
-        ITEMS++;
     }
 
     /**
@@ -82,7 +81,6 @@ public class HashTable {
                 temp.prev.next = temp.next;                         //esborrem temp, per tant actualitzem el següent de l'anterior
             }
         }
-        ITEMS--;
     }
 
     private int getHash(String key) {
