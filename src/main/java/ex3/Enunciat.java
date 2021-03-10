@@ -7,7 +7,7 @@ public class Enunciat {
 
     2. Fes que la taula de hash permeti emmagatzemar altres tipus de dades (object) i no només strings, per això et
        caldrà modificar el tipus de dada que emmagatzema la classe "HashEntry" així com alguns paràmetres dels mètodes
-       que la fan servir.
+       que la fan servire.
 
     3. Per a millorar el rendiment de la nostra taula de hash en modificarem la implementació perquè no hi hagi
        col·lisions:
