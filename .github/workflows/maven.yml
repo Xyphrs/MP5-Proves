@@ -21,4 +21,4 @@ jobs:
       with:
         java-version: 15
     - name: Build with Maven
-      run: mvn -B HashTableTest --file pom.xml
+      run: mvn -B HashTableTest.java --file pom.xml
