@@ -1,4 +1,4 @@
-package ex2;
+package ex3;
 
 // Original source code: https://gist.github.com/amadamala/3cdd53cb5a6b1c1df540981ab0245479
 // Modified by Fernando Porrino Serrano for academic purposes.
@@ -42,6 +42,7 @@ public class HashTable {
             temp.next = hashEntry;
             hashEntry.prev = temp;
         }
+        ITEMS++;
     }
 
     /**
@@ -54,13 +55,18 @@ public class HashTable {
         if(entries[hash] != null) {
             HashEntry temp = entries[hash];
 
-            while( !temp.key.equals(key))
-                temp = temp.next;
+            temp = findEntry(key, temp);
 
-            return temp.value;
+            return (String) temp.value;
         }
 
         return null;
+    }
+
+    private HashEntry findEntry(String key, HashEntry temp) {
+        while( !temp.key.equals(key))
+            temp = temp.next;
+        return temp;
     }
 
     /**
@@ -72,8 +78,7 @@ public class HashTable {
         if(entries[hash] != null) {
 
             HashEntry temp = entries[hash];
-            while( !temp.key.equals(key))
-                temp = temp.next;
+            temp = findEntry(key, temp);
 
             if(temp.prev == null) entries[hash] = null;             //esborrar element únic (no col·lissió)
             else{
@@ -81,6 +86,7 @@ public class HashTable {
                 temp.prev.next = temp.next;                         //esborrem temp, per tant actualitzem el següent de l'anterior
             }
         }
+        ITEMS--;
     }
 
     private int getHash(String key) {
@@ -90,14 +96,14 @@ public class HashTable {
     }
 
     static class HashEntry {
-        String key;
-        String value;
+        Object key;
+        Object value;
 
         // Linked list of same hash entries.
         HashEntry next;
         HashEntry prev;
 
-        public HashEntry(String key, String value) {
+        public HashEntry(Object key, Object value) {
             this.key = key;
             this.value = value;
             this.next = null;
