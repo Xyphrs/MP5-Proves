@@ -27,7 +27,7 @@ public class HashTable {
      * @param key La clau de l'element a afegir.
      * @param value El propi element que es vol afegir.
      */
-    public void put(String key, String value) {
+    public void put(Object key, Object value) {
         int hash = getHash(key);
         final HashEntry hashEntry = new HashEntry(key, value);
 
@@ -50,20 +50,20 @@ public class HashTable {
      * @param key La clau de l'element a trobar.
      * @return El propi element que es busca (null si no s'ha trobat).
      */
-    public String get(String key) {
+    public Object get(Object key) {
         int hash = getHash(key);
         if(entries[hash] != null) {
             HashEntry temp = entries[hash];
 
             temp = findEntry(key, temp);
 
-            return (String) temp.value;
+            return temp.value;
         }
 
         return null;
     }
 
-    private HashEntry findEntry(String key, HashEntry temp) {
+    private HashEntry findEntry(Object key, HashEntry temp) {
         while( !temp.key.equals(key))
             temp = temp.next;
         return temp;
@@ -73,7 +73,7 @@ public class HashTable {
      * Permet esborrar un element dins de la taula.
      * @param key La clau de l'element a trobar.
      */
-    public void drop(String key) {
+    public void drop(Object key) {
         int hash = getHash(key);
         if(entries[hash] != null) {
 
@@ -89,7 +89,7 @@ public class HashTable {
         ITEMS--;
     }
 
-    private int getHash(String key) {
+    private int getHash(Object key) {
         // piggy backing on java string
         // hashcode implementation.
         return key.hashCode() % SIZE;
