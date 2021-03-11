@@ -9,7 +9,7 @@ public class Enunciat {
     2. SOLUCIONA els errors que hi trobis: ni han 6. NO ESBORRIS CODI, tan sols comenta'l perquè es pugui veure el
        codi antic i el codi nou.
 
-    3. NO HI APLIQUIS REFACCIÓ!!!
+    3. NO HI APLIQUIS REFACCIÓ!!!!
 
     4. Grava en vídeo el següent:
        4.1. Explica què són les proves unitàries i perquè serveixen.
